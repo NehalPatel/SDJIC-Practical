@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects - Show/Hide, Fade, Slide</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 20px;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Show/Hide, Fade, Slide</h1>
+    <button id="btn-show">Show</button>
+    <button id="btn-hide">Hide</button>
+    <button id="btn-toggle">Toggle</button>
+    <br><br>
+    <button id="btn-fadein">Fade In</button>
+    <button id="btn-fadeout">Fade Out</button>
+    <button id="btn-fadetoggle">Fade Toggle</button>
+    <br><br>
+    <button id="btn-slidein">Slide In</button>
+    <button id="btn-slideout">Slide Out</button>
+    <button id="btn-slidetoggle">Slide Toggle</button>
+    <div class="box">Box</div>
+
+    <script>
+        $(document).ready(function () {
+
+            const $box = $(".box");
+
+            // Show/Hide/Toggle
+            $("#btn-show").click(function () {
+                $box.show('fast');
+            });
+
+            $("#btn-hide").click(function () {
+                $box.hide('slow');
+            });
+
+            $("#btn-toggle").click(function () {
+                $box.toggle(5000, function () {
+                    alert("Animation Complete!");
+                });
+            });
+
+            // Fade In/Out/Toggle
+            $("#btn-fadein").click(function () {
+                $box.fadeIn(5000);
+            });
+
+            $("#btn-fadeout").click(function () {
+                $box.fadeOut('fast');
+            });
+
+            $("#btn-fadetoggle").click(function () {
+                $box.fadeToggle(2000);
+            });
+
+            // Slide In/Out/Toggle
+            $("#btn-slidein").click(function () {
+                $box.slideDown('slow');
+            });
+
+            $("#btn-slideout").click(function () {
+                $box.slideUp('fast');
+            });
+
+            $("#btn-slidetoggle").click(function () {
+                $box.slideToggle(2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

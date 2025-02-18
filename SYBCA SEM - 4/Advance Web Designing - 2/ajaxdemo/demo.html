@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Demo</title>
+</head>
+
+<body>
+    <h1>Score Demo</h1>
+    <p>Match: <span class="match"></span></p>
+    <p>Score:<span class="score"></span></p>
+    <p>Overs:<span class="overs"></span></p>
+    <button id="getDataBtn" href="#">Update</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#getDataBtn").click(updateScore);
+
+            // setInterval(() => {
+            //     updateScore()
+            // }, 10000);
+        });
+
+        function updateScore() {
+            $.ajax({
+                url: 'score.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    $(".match").html(response.match);
+                    $(".score").html(response.score);
+                    $(".overs").html(response.overs);
+                },
+                error: function (error) {
+                    alert("Error something goes wrong");
+                    console.log(error)
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

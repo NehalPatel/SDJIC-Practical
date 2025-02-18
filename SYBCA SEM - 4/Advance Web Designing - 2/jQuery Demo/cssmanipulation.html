@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <h1>1. Get a CSS Property</h1>
+    <p id="css-example" style="color: blue; font-size: 20px;">Hello, jQuery!</p>
+    <button id="get-css">Get Color</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#get-css").click(function () {
+                let color = $("#css-example").css("color");
+                alert("Text color: " + color);
+            });
+        });
+    </script>
+
+    <hr />
+    <h1>2. Set a Single CSS Property</h1>
+    <p id="set-css-example">Change my color!</p>
+    <button id="set-css">Set Color</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#set-css").click(function () {
+                $("#set-css-example").css("color", "red");
+            });
+        });
+    </script>
+
+    <hr />
+    <h1>3. Set Multiple CSS Properties</h1>
+
+    <p id="multi-css-example">Style me!</p>
+    <button id="multi-css">Apply Styles</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#multi-css").click(function () {
+                $("#multi-css-example").css({
+                    "color": "green",
+                    "font-size": "24px",
+                    "background-color": "lightgray",
+                    "padding": "10px"
+                });
+            });
+        });
+    </script>
+
+    <hr />
+    <h1>4. Toggle Between Two Styles</h1>
+
+    <p id="toggle-css-example">Toggle my color!</p>
+    <button id="toggle-css">Toggle Color</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#toggle-css").click(function () {
+                let currentColor = $("#toggle-css-example").css("color");
+                $("#toggle-css-example").css("color", currentColor === "rgb(0, 0, 0)" ? "blue" : "black");
+            });
+        });
+    </script>
+
+    <hr />
+    <img src="images/cssmanipulation.png" />
+
+
+</body>
+
+</html>

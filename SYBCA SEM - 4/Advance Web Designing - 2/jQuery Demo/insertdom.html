@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="append-example">Original Content</div>
+    <button id="append-btn">Append Text</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#append-btn").click(function () {
+                $("#append-example").append(" <strong>Appended Text</strong>");
+            });
+        });
+    </script>
+
+    <hr />
+
+    <div id="prepend-example">Original Content</div>
+    <button id="prepend-btn">Prepend Text</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#prepend-btn").click(function () {
+                $("#prepend-example").prepend("<strong>Prepended Text </strong>");
+            });
+        });
+    </script>
+
+    <hr />
+
+    <p id="text-example">Original Text</p>
+    <button id="set-text">Set Text</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#set-text").click(function () {
+                $("#text-example").text("This is new text <b>(no HTML allowed)!</b>");
+            });
+        });
+    </script>
+
+    <hr />
+
+    <div id="before-example">Target Element</div>
+    <button id="before-btn">Insert Before</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#before-btn").click(function () {
+                $("#before-example").before("<p>New element before target</p>");
+            });
+        });
+    </script>
+
+    <hr />
+
+    <div id="after-example">Target Element</div>
+    <button id="after-btn">Insert After</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#after-btn").click(function () {
+                $("#after-example").after("<p>New element after target</p>");
+            });
+        });
+    </script>
+
+    <hr />
+
+    <p id="wrap-example">Wrapped Content</p>
+    <button id="wrap-btn">Wrap with a div</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#wrap-btn").click(function () {
+                $("#wrap-example").wrap("<div style='border: 2px solid red; padding: 10px;'></div>");
+            });
+        });
+    </script>
+
+    <hr />
+    <img src="images/insertdom.png" alt="Insert DOM Example">
+
+
+
+</body>
+
+</html>

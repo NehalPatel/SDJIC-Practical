@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery text() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <p>SDJ International College</p>
+
+    <p id="text-example">Hello, world!</p>
+    <button id="get-text">Get Text</button>
+    <button id="set-text">Set Text</button>
+
+    <script>
+        $(document).ready(function () {
+            // Get text
+            $("#get-text").click(function () {
+                alert($("#text-example").text());
+            });
+
+            // Set text
+            $("#set-text").click(function () {
+                $("#text-example").text("Text has been <b>changed!</b>");
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery attr() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <p id="attr-example" title="Original Title">Hover over me!</p>
+    <button id="get-attr">Get Title Attribute</button>
+    <button id="set-attr">Set New Title</button>
+
+    <script>
+        $(document).ready(function () {
+            // Get attribute
+            $("#get-attr").click(function () {
+                alert("Title: " + $("#attr-example").attr("title"));
+            });
+
+            // Set attribute
+            $("#set-attr").click(function () {
+                $("#attr-example").attr("title", "New Title Set!");
+            });
+        });
+    </script>
+</body>
+
+</html>

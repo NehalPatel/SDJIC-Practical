@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery html() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div id="html-example">Original HTML content</div>
+    <button id="get-html">Get HTML</button>
+    <button id="set-html">Set HTML</button>
+
+    <script>
+        $(document).ready(function () {
+            // Get HTML
+            $("#get-html").click(function () {
+                alert("HTML: " + $("#html-example").html());
+            });
+
+            // Set HTML
+            $("#set-html").click(function () {
+                $("#html-example").html("<b>New HTML content!</b>");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

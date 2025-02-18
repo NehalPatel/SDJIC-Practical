@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student AJAX Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label,
+        input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Student Form</h2>
+        <form id="studentForm">
+            <label>Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label>Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label>Age:</label>
+            <input type="number" id="age" name="age">
+
+            <button type="submit">Submit</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#studentForm").on("submit", function (e) {
+                e.preventDefault();
+
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var age = $("#age").val();
+
+                $.ajax({
+                    url: "submit.php",
+                    type: "POST",
+                    data: {
+                        student_name: name,
+                        student_email: email,
+                        student_age: age
+                    },
+                    success: function (response) {
+                        $("#message").html(response); // Display success message
+                        $("#studentForm")[0].reset(); // Reset form fields
+                    },
+                    error: function () {
+                        $("#message").html("Error occurred!");
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

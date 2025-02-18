@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX XML Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h2>AJAX jQuery XML Example</h2>
+    <button id="fetchData">Fetch Data</button>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function () {
+            $("#fetchData").click(function () {
+                $.ajax({
+                    url: "data.xml",
+                    type: "GET",
+                    dataType: "xml",
+                    success: function (response) {
+                        console.log(response);
+                        let output = "<h3>Users List</h3><ul>";
+                        $(response).find("user").each(function () {
+                            let name = $(this).find("name").text();
+                            let email = $(this).find("email").text();
+                            output += `<li><b>${name}</b> - ${email}</li>`;
+                        });
+                        output += "</ul>";
+                        $("#result").html(output);
+                    },
+                    error: function () {
+                        $("#result").html("<p>Error loading XML data.</p>");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

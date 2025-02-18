@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Chaining vs Callback</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn-chain">Start Chaining</button>
+    <button id="btn-callback">Start Callback</button>
+    <div id="box">Box</div>
+
+    <script>
+        $(document).ready(function () {
+            var $box = $("#box");
+
+            // 🟢 Chaining Example
+            $("#btn-chain").click(function () {
+                $box
+                    .animate({ left: "300px" }, 1000)  // Move right
+                    .fadeOut(500)                     // Fade out
+                    .fadeIn(500)                      // Fade in
+                    .animate({ top: "200px" }, 1000)  // Move down
+                    .animate({ left: "50px" }, 1000)  // Move back to original position
+                    .animate({ top: "50px" }, 1000);  // Move back to original position
+            });
+
+            // 🔵 Callback Example
+            $("#btn-callback").click(function () {
+                $box.animate({ left: "300px" }, 1000, function () {
+                    $(this).fadeOut(500, function () {
+                        $(this).fadeIn(500, function () {
+                            $(this).animate({ top: "200px" }, 1000, function () {
+                                $(this).animate({ left: "50px" }, 1000, function () {
+                                    $(this).animate({ top: "50px" }, 1000, function () {
+                                        alert("Animation Complete!");
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

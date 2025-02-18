@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Events Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Events Demo</h1>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <br /><br />
+    <input type="text" id="age" placeholder="Enter your age" />
+    <br /><br />
+    <select id="color">
+        <option value="">Select a color</option>
+        <option value="red">Red Color</option>
+        <option value="green">Green Color</option>
+        <option value="blue">Blue Color</option>
+    </select>
+    <br /><br />
+    <button id="btn-click">Click Me</button>
+
+    <p id="message"></p>
+
+    <script>
+        $(document).ready(function () {
+            // ready() event: Executes when the DOM is fully loaded
+            $("#message").text("DOM is ready. Start interacting!");
+
+            // click() event: Triggers when the button is clicked
+            $("#btn-click").click(function () {
+                $("#message").text("Button was clicked!");
+            });
+
+            // keypress() event: Triggers when a key is pressed in the name input
+            $("#name").keypress(function (e) {
+                console.log(e);
+                $("#message").text(`Key pressed: ${e.key}`);
+            });
+
+            // focus() event: Triggers when an input gains focus
+            $("#name, #age").focus(function () {
+                $(this).addClass("highlight");
+            });
+
+
+            // blur() event: Triggers when an input loses focus
+            $("#name, #age").blur(function () {
+                $(this).removeClass("highlight");
+            });
+
+            // change() event: Triggers when the selected value of a dropdown changes
+            $("#color").change(function () {
+                const selectedColor = $(this).val();
+                if (selectedColor) {
+                    $("#message").text(`You selected: ${selectedColor}`);
+                } else {
+                    $("#message").text("No color selected.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

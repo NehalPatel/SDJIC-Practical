@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Selectors Demo</h1>
+    <p>This is a <span class="example">simple</span> example of jQuery selectors.</p>
+    <p class="special">This paragraph has an <em>emphasized</em> word.</p>
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li class="special">Special item</li>
+    </ul>
+
+    <button id="btn-highlight">Highlight All Paragraphs</button>
+    <button id="btn-emphasized">Highlight Emphasized Words</button>
+    <button id="btn-special">Highlight Special Item</button>
+    <button id="btn-first-li">Highlight First List Item</button>
+
+    <script>
+        $(document).ready(function () {
+            // Highlight all paragraphs
+            $("#btn-highlight").click(function () {
+                $("p").toggleClass("highlight");
+            });
+
+            // Highlight all <em> tags
+            $("#btn-emphasized").click(function () {
+                $("em").toggleClass("highlight");
+            });
+
+            // Highlight elements with class 'special'
+            $("#btn-special").click(function () {
+                $(".special").toggleClass("highlight");
+            });
+
+            // Highlight the first <li> in the <ul>
+            $("#btn-first-li").click(function () {
+                $("li:last").toggleClass("highlight");
+            });
+        });
+    </script>
+</body>
+
+</html>

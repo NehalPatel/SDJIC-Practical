@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selectors Quiz</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>jQuery Selectors Quiz</h2>
+    <form id="quiz-form">
+
+        <div class="question">
+            <p><strong>1. Which jQuery selector selects all &lt;p&gt; elements on the page?</strong></p>
+            <input type="radio" name="q1" value="a"> a) $("p") <br>
+            <input type="radio" name="q1" value="b"> b) $("#p") <br>
+            <input type="radio" name="q1" value="c"> c) $(".p") <br>
+            <input type="radio" name="q1" value="d"> d) $("p#") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>2. How do you select an element with the ID <code>main-content</code>?</strong></p>
+            <input type="radio" name="q2" value="a"> a) $("main-content") <br>
+            <input type="radio" name="q2" value="b"> b) $("#main-content") <br>
+            <input type="radio" name="q2" value="c"> c) $(".main-content") <br>
+            <input type="radio" name="q2" value="d"> d) $("div.main-content") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>3. Which selector selects all elements with the class <code>highlight</code>?</strong></p>
+            <input type="radio" name="q3" value="a"> a) $(".highlight") <br>
+            <input type="radio" name="q3" value="b"> b) $("#highlight") <br>
+            <input type="radio" name="q3" value="c"> c) $("highlight") <br>
+            <input type="radio" name="q3" value="d"> d) $("div.highlight") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>4. What does <code>$("ul li")</code> select?</strong></p>
+            <input type="radio" name="q4" value="a"> a) All &lt;ul&gt; elements <br>
+            <input type="radio" name="q4" value="b"> b) Only the first &lt;li&gt; inside &lt;ul&gt; <br>
+            <input type="radio" name="q4" value="c"> c) All &lt;li&gt; elements inside &lt;ul&gt; <br>
+            <input type="radio" name="q4" value="d"> d) All &lt;li&gt; elements on the page <br>
+        </div>
+
+        <div class="question">
+            <p><strong>5. How do you select all &lt;input&gt; elements of type "text"?</strong></p>
+            <input type="radio" name="q5" value="a"> a) $("input[type=text]") <br>
+            <input type="radio" name="q5" value="b"> b) $("input:text") <br>
+            <input type="radio" name="q5" value="c"> c) $("input.text") <br>
+            <input type="radio" name="q5" value="d"> d) $("input#text") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>6. Which selector selects only the first &lt;p&gt; element on the page?</strong></p>
+            <input type="radio" name="q6" value="a"> a) $("p:first") <br>
+            <input type="radio" name="q6" value="b"> b) $("p:first-child") <br>
+            <input type="radio" name="q6" value="c"> c) $("p:first-of-type") <br>
+            <input type="radio" name="q6" value="d"> d) $("p").first() <br>
+        </div>
+
+        <div class="question">
+            <p><strong>7. Which jQuery selector selects all checked checkboxes?</strong></p>
+            <input type="radio" name="q7" value="a"> a) $("input:checkbox") <br>
+            <input type="radio" name="q7" value="b"> b) $("input[checked]") <br>
+            <input type="radio" name="q7" value="c"> c) $("input:checked") <br>
+            <input type="radio" name="q7" value="d"> d) $("checkbox:checked") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>8. How do you select all elements that have the attribute <code>data-user</code>?</strong></p>
+            <input type="radio" name="q8" value="a"> a) $("[data-user]") <br>
+            <input type="radio" name="q8" value="b"> b) $("data-user") <br>
+            <input type="radio" name="q8" value="c"> c) $("*[data-user]") <br>
+            <input type="radio" name="q8" value="d"> d) $("#data-user") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>9. Which jQuery selector selects only &lt;div&gt; elements that have the class
+                    <code>box</code>?</strong></p>
+            <input type="radio" name="q9" value="a"> a) $(".box div") <br>
+            <input type="radio" name="q9" value="b"> b) $("div.box") <br>
+            <input type="radio" name="q9" value="c"> c) $("div .box") <br>
+            <input type="radio" name="q9" value="d"> d) $("#box div") <br>
+        </div>
+
+        <div class="question">
+            <p><strong>10. What does <code>$("tr:odd")</code> select?</strong></p>
+            <input type="radio" name="q10" value="a"> a) All even &lt;tr&gt; elements <br>
+            <input type="radio" name="q10" value="b"> b) All odd &lt;tr&gt; elements <br>
+            <input type="radio" name="q10" value="c"> c) The last &lt;tr&gt; in the table <br>
+            <input type="radio" name="q10" value="d"> d) The first &lt;tr&gt; in the table <br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $("#quiz-form").submit(function (event) {
+            event.preventDefault();
+            alert("Quiz submitted! Check your answers.");
+        });
+    </script>
+
+</body>
+
+</html>

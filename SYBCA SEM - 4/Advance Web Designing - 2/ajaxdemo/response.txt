@@ -1,0 +1,9 @@
+This is plain text content.
+
+<h3>HTML Content</h3>
+<p>This is a paragraph inside HTML.</p>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+<strong>Bold Text Example</strong>

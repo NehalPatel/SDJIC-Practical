@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="remove-example">
+        <p>This is a removable paragraph.</p>
+    </div>
+    <button id="remove-btn">Remove Element</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#remove-btn").click(function () {
+                $("#remove-example").remove(); // Removes the entire div with its content
+            });
+        });
+    </script>
+
+    <hr />
+
+    <div id="empty-example">
+        <p>This paragraph will be removed.</p>
+        <p>This one too!</p>
+    </div>
+    <button id="empty-btn">Empty Content</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#empty-btn").click(function () {
+                $("#empty-example").empty(); // Removes all inner content but keeps the div
+            });
+        });
+    </script>
+
+    <hr />
+    <div id="wrapper">
+        <b>
+            <p>This paragraph will be unwrapped.</p>
+        </b>
+    </div>
+    <button id="unwrap-btn">Unwrap Element</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#unwrap-btn").click(function () {
+                $("#wrapper p").unwrap(); // Removes the <div> but keeps the <p>
+            });
+        });
+    </script>
+
+    <hr />
+
+    <img src="images/removedom.png" />
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Demo</title>
+</head>
+
+<body>
+    <h1>Score Demo</h1>
+    <p>Match: <span class="match"></span></p>
+    <p>Score:<span class="score"></span></p>
+    <p>Overs:<span class="overs"></span></p>
+    <button id="getDataBtn" href="#" onclick="updateScore()">Update</button>
+
+    <script>
+        // document.getElementById("getDataBtn").addEventListener("click", updateScore);
+
+        setInterval(updateScore, 10000);
+
+        function updateScore() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "score.php", true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    document.querySelector(".match").innerHTML = response.match;
+                    document.querySelector(".score").innerHTML = response.score;
+                    document.querySelector(".overs").innerHTML = response.overs;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

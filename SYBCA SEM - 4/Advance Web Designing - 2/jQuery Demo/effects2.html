@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects - Stop, Chaining, Callback</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Stop, Chaining, Callback</h1>
+    <div class="box"></div>
+    <button id="btn-start">Start Animation</button>
+    <button id="btn-stop">Stop Animation</button>
+
+    <script>
+        $(document).ready(function () {
+            const $box = $(".box");
+
+            // Animation with chaining and callback
+            $("#btn-start").click(function () {
+                $box.animate({ left: "300px" }, 1000)
+                    .animate({ top: "200px" }, 1000) // Move down
+                    .animate({ left: "0px" }, 1000) // Move left
+                    .animate({ top: "0px" }, 1000, function () {
+                        // alert('animation complete');
+                    });
+
+            });
+
+            // Stop animation
+            $("#btn-stop").click(function () {
+                $box.stop(true); // Stops current and queued animations
+            });
+
+        });
+    </script>
+</body>
+
+</html>
